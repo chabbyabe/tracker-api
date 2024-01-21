@@ -57,4 +57,13 @@ class User extends Authenticatable
         return $this->hasMany(UserCategory::class);
     }
 
+    /**
+     * Get all of the user_categories for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

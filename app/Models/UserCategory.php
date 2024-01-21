@@ -22,5 +22,14 @@ class UserCategory extends Model
         return $this->hasMany(UserSubcategory::class);
     }
 
+    /**
+     * Get the user that owns the UserCategory
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }
