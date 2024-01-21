@@ -46,4 +46,15 @@ class User extends Authenticatable
     public function roles() {
         return $this->belongsToMany(Role::class, 'role_users');
     }
+
+    /**
+     * Get all of the user_categories for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function user_categories(): HasMany
+    {
+        return $this->hasMany(UserCategory::class);
+    }
+
 }

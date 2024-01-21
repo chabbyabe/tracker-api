@@ -11,4 +11,16 @@ class UserCategory extends Model
 
     protected $fillable = ['name', 'type', 'description'];
 
+
+    /**
+     * Get all of the user_subcategories for the UserCategory
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function user_subcategories(): HasMany
+    {
+        return $this->hasMany(UserSubcategory::class);
+    }
+
+
 }

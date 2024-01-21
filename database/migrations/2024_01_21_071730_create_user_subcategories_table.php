@@ -12,12 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_categories', function (Blueprint $table) {
+        Schema::create('user_subcategories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('type')->comment('Income or Expenses');
             $table->string('description', 500)->nullable();
-            $table->foreignId('user_id')->constrained(); 
+            $table->foreignId('user_category_id')->constrained(); 
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_categories');
+        Schema::dropIfExists('user_subcategories');
     }
 };
