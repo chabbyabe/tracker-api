@@ -11,4 +11,15 @@ class Category extends Model
 
     protected $fillable = ['name', 'type', 'description'];
 
+    
+    /**
+     * Get all of the subcategories for the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subcategories(): HasMany
+    {
+        return $this->hasMany(Subcategory::class);
+    }
+
 }
