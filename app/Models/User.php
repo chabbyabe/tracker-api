@@ -66,4 +66,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transaction::class);
     }
+
+    /**
+     * The wallets that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function wallets(): BelongsToMany
+    {
+        return $this->belongsToMany(Wallet::class, 'user_wallets', 'user_id', 'wallet_id');
+    }
+
+    /**
+     * The currencies that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function currencies(): BelongsToMany
+    {
+        return $this->belongsToMany(Curreny::class, 'currency_user', 'user_id', 'currency_id');
+    }
 }
