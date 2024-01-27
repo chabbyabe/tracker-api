@@ -86,6 +86,6 @@ class User extends Authenticatable
      */
     public function currencies(): BelongsToMany
     {
-        return $this->belongsToMany(Currency::class, 'currency_user', 'user_id', 'currency_id');
+        return $this->belongsToMany(Currency::class, 'currency_users', 'user_id', 'currency_id');
     }
 }
