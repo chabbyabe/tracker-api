@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\WalletResource;
-use App\Models\Wallet;
+use App\Http\Resources\UserCategoryResource;
+use App\Models\UserCategory;
 use Illuminate\Http\Request;
 
-class WalletController extends Controller
+class UserCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        $wallets = Wallet::find('user_id', $request->user_id);
+        $user_categories = UserCategory::find('user_id', $request->user_id);
         return response()->json([
-            'data' => WalletResource::collection($wallets),
+            'data' => UserCategoryResource::collection($user_categories),
             'status' => 200,
         ]);
     }

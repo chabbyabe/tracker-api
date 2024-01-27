@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\WalletResource;
-use App\Models\Wallet;
+use App\Http\Resources\TransactionResource;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
-class WalletController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        $wallets = Wallet::find('user_id', $request->user_id);
+        $transactions = Transaction::where('user_id', $request->user_id);
         return response()->json([
-            'data' => WalletResource::collection($wallets),
+            'data' => TransactionResource::collection($transactions),
             'status' => 200,
         ]);
     }
