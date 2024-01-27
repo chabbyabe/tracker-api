@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Wallet extends Model
 {
@@ -18,7 +20,7 @@ class Wallet extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(Users::class, 'user_wallets', 'wallet_id', 'user_id');
+        return $this->belongsToMany(User::class, 'user_wallets', 'wallet_id', 'user_id');
     }
 
     /**
