@@ -21,4 +21,14 @@ class Transaction extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get the subcategory that owns the Transaction
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function subcategory(): BelongsTo
+    {
+        return $this->belongsTo(UserSubcategory::class);
+    }
 }

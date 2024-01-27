@@ -21,6 +21,8 @@ class UserResource extends JsonResource
             'roles' => RoleResource::collection($this->roles),
             'currencies' => CurrencyResource::collection($this->currencies),
             'wallets' => WalletResource::collection($this->wallets),
+            'user_categories' => UserCategoryResource::collection($this->user_categories),
+            'transactions' => TransactionResource::collection($this->transactions),
             'email_verified_at' => $this->email_verified_at,
             'password' => $this->password,
         ];
